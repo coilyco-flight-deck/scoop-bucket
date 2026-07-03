@@ -1,0 +1,39 @@
+# Durable autoupdate: on a schedule (and on demand) advance each manifest to the
+# newest complete upstream release and commit the bump straight to main. This is
+# the job that was missing - without it the bucket never moves, so `scoop update`
+# on Windows keeps reporting the installed version as latest. See scoop-bucket#1
+# and docs/autoupdate.md.
+
+name: autoupdate
+
+on:
+  schedule:
+    - cron: "23 * * * *" # hourly, offset off the top of the hour
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    runs-on: docker
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Advance manifests to newest complete releases
+        run: node scripts/update-manifests.mjs
+
+      - name: Commit and push any bumps
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- bucket; then
+            echo "No manifest changes to land."
+            exit 0
+          fi
+          git config user.name "coilyco-ops"
+          git config user.email "coilyco-ops@noreply.forgejo.coilysiren.me"
+          git add bucket
+          # Autoupdate bumps close no issue; the commit-msg closes-issue hook is a
+          # client-side pre-commit hook and is not installed on the runner.
+          git commit -m "chore(autoupdate): advance manifests to newest complete releases"
+          git push origin HEAD:main

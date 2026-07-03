@@ -22,7 +22,9 @@ scoop update ward
 
 ## How autoupdate works
 
-Each manifest's `autoupdate` block points at `https://forgejo.coilysiren.me/coilyco-flight-deck/<repo>/releases/download/v$version/<asset>#/<rename>` and reads the SHA256 from the `.sha256` sidecar uploaded alongside the binary. `scoop bucket update` walks the bucket and bumps any manifest whose upstream `checkver` matches the Forgejo `releases.atom` feed.
+Each manifest's `autoupdate` block points at `https://forgejo.coilysiren.me/coilyco-flight-deck/<repo>/releases/download/v$version/<asset>#/<rename>` and reads the SHA256 from the `.sha256` sidecar uploaded alongside the binary.
+
+Landing those bumps back into the bucket is automated. `.forgejo/workflows/autoupdate.yml` runs `scripts/update-manifests.mjs` hourly, advances each manifest to the newest **complete** upstream release (one whose assets and `.sha256` sidecars all exist), and commits to `main`. Without that job the bucket never moves and `scoop update` keeps reporting the installed version as latest - see [docs/autoupdate.md](docs/autoupdate.md) and [scoop-bucket#1](https://forgejo.coilysiren.me/coilyco-flight-deck/scoop-bucket/issues/1).
 
 Upstream-side contract:
 

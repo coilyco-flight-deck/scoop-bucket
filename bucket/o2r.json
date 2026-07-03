@@ -1,16 +1,16 @@
 {
-    "version": "0.0.0",
+    "version": "0.2.0",
     "description": "Operator CLI for otel-a2a-relay Agent Channels and trust issuance.",
     "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/otel-a2a-relay-cli",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/otel-a2a-relay-cli/releases/download/v0.0.0/o2r-windows-amd64.exe#/o2r.exe",
-            "hash": "0000000000000000000000000000000000000000000000000000000000000000"
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/otel-a2a-relay-cli/releases/download/v0.2.0/o2r-windows-amd64.exe#/o2r.exe",
+            "hash": "f1b45ac8f889581a679ae05917fd5ba3bbbc4e4c67a8ac4a9f3c05c3b83ed350"
         },
         "arm64": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/otel-a2a-relay-cli/releases/download/v0.0.0/o2r-windows-arm64.exe#/o2r.exe",
-            "hash": "0000000000000000000000000000000000000000000000000000000000000000"
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/otel-a2a-relay-cli/releases/download/v0.2.0/o2r-windows-arm64.exe#/o2r.exe",
+            "hash": "5ecb9d9bcae2d78bdeb282dd86e6d7792d6e16621c01afa22615f481f4c83cad"
         }
     },
     "bin": "o2r.exe",

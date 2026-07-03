@@ -11,7 +11,9 @@ Bucket installed via `scoop bucket add flight-deck https://forgejo.coilysiren.me
 
 ## Autoupdate
 
-Each manifest's `autoupdate` block points at `https://forgejo.coilysiren.me/coilyco-flight-deck/<repo>/releases/download/v$version/<asset>#/<rename>` and reads the SHA256 from the `.sha256` sidecar uploaded alongside the binary. `scoop bucket update` walks the bucket and bumps any manifest whose upstream `checkver` matches.
+Each manifest's `autoupdate` block points at `https://forgejo.coilysiren.me/coilyco-flight-deck/<repo>/releases/download/v$version/<asset>#/<rename>` and reads the SHA256 from the `.sha256` sidecar uploaded alongside the binary.
+
+- **[.forgejo/workflows/autoupdate.yml](../.forgejo/workflows/autoupdate.yml)** + **[scripts/update-manifests.mjs](../scripts/update-manifests.mjs)** - the in-repo job that lands bumps. It runs hourly (and on `workflow_dispatch`), advances each manifest to the newest **complete** upstream release (skipping any tag whose assets or `.sha256` sidecars are missing), and commits to `main`. This is the piece whose absence stuck `ward` at `0.353.0` ([scoop-bucket#1](https://forgejo.coilysiren.me/coilyco-flight-deck/scoop-bucket/issues/1)). See [docs/autoupdate.md](autoupdate.md) for the walkthrough.
 
 Upstream-side contract:
 
