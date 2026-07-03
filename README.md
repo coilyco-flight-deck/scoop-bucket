@@ -6,17 +6,18 @@ Scoop bucket for Windows binaries published from `coilyco-flight-deck/*` repos. 
 
 ```powershell
 scoop bucket add flight-deck https://forgejo.coilysiren.me/coilyco-flight-deck/scoop-bucket
-scoop install flight-deck/o2r
+scoop install flight-deck/ward
 ```
 
 ## Update
 
 ```powershell
-scoop update o2r
+scoop update ward
 ```
 
 ## Manifests
 
+- **`ward`** - [coilyco-flight-deck/ward](https://forgejo.coilysiren.me/coilyco-flight-deck/ward). The cli-guard consumer (audited dev + operator surface). Pulls the prebuilt `ward-windows-<arch>.exe` from each Forgejo release. This is the Windows install/upgrade channel `ward upgrade` drives via `scoop update ward` (ward#561).
 - **`o2r`** - [coilyco-flight-deck/otel-a2a-relay-cli](https://forgejo.coilysiren.me/coilyco-flight-deck/otel-a2a-relay-cli). Operator CLI for Agent Channels and trust issuance. Pulls the prebuilt `o2r-windows-<arch>.exe` from each Forgejo release.
 
 ## How autoupdate works

@@ -6,6 +6,7 @@ Baseline inventory of what `coilyco-flight-deck/scoop-bucket` ships today. Updat
 
 Bucket installed via `scoop bucket add flight-deck https://forgejo.coilysiren.me/coilyco-flight-deck/scoop-bucket`. Individual manifests installed with `scoop install flight-deck/<name>`.
 
+- **[bucket/ward.json](../bucket/ward.json)** - tracks `coilyco-flight-deck/ward` Forgejo releases. Pulls `ward-windows-{amd64,arm64}.exe` (renamed `ward.exe`), each verified against its `.exe.sha256` sidecar. ward is the cli-guard consumer (audited dev + operator surface) and this is the primary Windows install/upgrade channel `ward upgrade` drives. See [ward#561](https://forgejo.coilysiren.me/coilyco-flight-deck/ward/issues/561).
 - **[bucket/o2r.json](../bucket/o2r.json)** - tracks `coilyco-flight-deck/otel-a2a-relay-cli` Forgejo releases. Pulls the prebuilt `o2r-windows-<arch>.exe` from each tag. Operator CLI for Agent Channels and trust issuance.
 
 ## Autoupdate

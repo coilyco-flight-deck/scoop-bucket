@@ -1,0 +1,37 @@
+{
+    "version": "0.353.0",
+    "description": "Contributor-facing cli-guard consumer: audited dev + operator command surface.",
+    "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/ward",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v0.353.0/ward-windows-amd64.exe#/ward.exe",
+            "hash": "2fefa52efe11b6b223085828a09fb4831698497f231da36f21f543ef26856386"
+        },
+        "arm64": {
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v0.353.0/ward-windows-arm64.exe#/ward.exe",
+            "hash": "42b6a95899bf057fcddb2a33abca2e3820811a351dfeb311283bd432b203e6ae"
+        }
+    },
+    "bin": "ward.exe",
+    "checkver": {
+        "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases.atom",
+        "regex": "releases/tag/v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v$version/ward-windows-amd64.exe#/ward.exe",
+                "hash": {
+                    "url": "$url.sha256"
+                }
+            },
+            "arm64": {
+                "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v$version/ward-windows-arm64.exe#/ward.exe",
+                "hash": {
+                    "url": "$url.sha256"
+                }
+            }
+        }
+    }
+}
