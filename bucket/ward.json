@@ -1,16 +1,16 @@
 {
-    "version": "0.422.0",
+    "version": "0.423.0",
     "description": "Audited verb gate + operator surface: the CLI contributors and agents route build/test/lint and operator ops through.",
     "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/ward",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v0.422.0/ward-windows-amd64.exe#/ward.exe",
-            "hash": "4a8bee963290036f29396a809763e0abb09a70c04813cf597bd3e5e23559fb4a"
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v0.423.0/ward-windows-amd64.exe#/ward.exe",
+            "hash": "536852cab21b2c7305689db224a75a4e89039bae970754594991b676ba6ec4f4"
         },
         "arm64": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v0.422.0/ward-windows-arm64.exe#/ward.exe",
-            "hash": "e8ab3c964200943df022c17a7abc00311124abf6b1ad37034f263c12a0c8f44f"
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v0.423.0/ward-windows-arm64.exe#/ward.exe",
+            "hash": "733d6f313a63400432dddb1ac1f6631fc4c6e40b995dafec474bd81f8da0a1c2"
         }
     },
     "bin": "ward.exe",
