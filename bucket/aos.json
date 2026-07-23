@@ -1,12 +1,12 @@
 {
-    "version": "0.10.0",
+    "version": "0.11.0",
     "description": "Standalone composed-agent container launcher for Agentic OS",
     "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.10.0/aos-windows-amd64.exe",
-            "hash": "7fef6128e4fa9dcae98722b3af1a175904b820384e208df3241dbc10aea90c21",
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.11.0/aos-windows-amd64.exe",
+            "hash": "80f03e8415d609399236cdfbea1de1907b784f17298ee78181c64f334e74e3f4",
             "bin": [["aos-windows-amd64.exe", "aos"]]
         }
     }
