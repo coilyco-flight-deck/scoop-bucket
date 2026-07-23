@@ -1,12 +1,12 @@
 {
-    "version": "0.2.1",
+    "version": "0.3.0",
     "description": "Kai's personality engine for agent context",
     "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose/releases/download/v0.2.1/agent-compose-windows-amd64.exe",
-            "hash": "10d32a0939195241f659f6c8197eb7a3cc5ef4b64efa6e73dd762935a30373df",
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose/releases/download/v0.3.0/agent-compose-windows-amd64.exe",
+            "hash": "1fa8f6fd10a4a39465fb71646ace8d73e3ae0683051ff24a13e749eabe5f8992",
             "bin": [["agent-compose-windows-amd64.exe", "agent-compose"]]
         }
     }
