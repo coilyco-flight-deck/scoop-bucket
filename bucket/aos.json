@@ -1,12 +1,12 @@
 {
-    "version": "0.92.0",
+    "version": "0.93.0",
     "description": "Standalone composed-agent container launcher for Agentic OS",
     "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.92.0/aos-windows-amd64.exe",
-            "hash": "49af59cf0193170ed1d05b20ba6720dc7e45e200b27918ba74af3606cec50826",
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.93.0/aos-windows-amd64.exe",
+            "hash": "73f68d601c66e88cba64f65e68d73ba69d872d3653f7edd06f94655e0621c7c5",
             "bin": [
                 ["aos-windows-amd64.exe", "aos"],
                 ["aguard-windows-amd64.exe", "aguard"]
@@ -14,6 +14,6 @@
         }
     },
     "pre_install": [
-        "Invoke-WebRequest -Uri 'https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.92.0/aguard-windows-amd64.exe' -OutFile \"$dir/aguard-windows-amd64.exe\"; if ((Get-FileHash \"$dir/aguard-windows-amd64.exe\" -Algorithm SHA256).Hash -ne 'd335b895d32d29f9fdbdd1c119d3767547361dc117536c414c173f6b8c9dd713') { throw 'aguard checksum mismatch' }"
+        "Invoke-WebRequest -Uri 'https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.93.0/aguard-windows-amd64.exe' -OutFile \"$dir/aguard-windows-amd64.exe\"; if ((Get-FileHash \"$dir/aguard-windows-amd64.exe\" -Algorithm SHA256).Hash -ne 'c7e479066954a2d4c1d782c61bc7f262057a888568bc110af5dda7b0d0a2b796') { throw 'aguard checksum mismatch' }"
     ]
 }
