@@ -1,27 +1,27 @@
 {
-    "version": "0.819.0",
+    "version": "0.820.0",
     "description": "Audited verb gate + operator surface: the CLI contributors and agents route build/test/lint and operator ops through.",
     "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/ward",
     "license": "MIT",
     "architecture": {
         "64bit": {
             "url": [
-                "https://forgejo.coilysiren.me/attachments/a19cc683-c957-49b7-a026-e26d91d8cf1f#/ward.exe",
-                "https://forgejo.coilysiren.me/attachments/2838453e-3080-4d4f-af95-469228fa05d2#/ward-linux-amd64"
+                "https://forgejo.coilysiren.me/attachments/d5957815-7cdd-40af-aafb-2434bcffde16#/ward.exe",
+                "https://forgejo.coilysiren.me/attachments/c069554e-98f6-444e-9b8c-0231f3040758#/ward-linux-amd64"
             ],
             "hash": [
-                "c7cb0e9071c113916bcbf9cfd94892e4df0445abc04042c56b83db6b86d8f3ba",
-                "7fd5ec2521137a04665f796f5d59997956b648764ba17783b7a5d8c0be1f292a"
+                "8c378e8db287e033d4f73bd16fec3a34557ce0db9103605801ad1d5d2191e4b0",
+                "27237f5ccb641fe6f7d51721f8854cf6617ae29382fbeeb17a84a6d421977af2"
             ]
         },
         "arm64": {
             "url": [
-                "https://forgejo.coilysiren.me/attachments/6d9f48b0-549d-4f10-9793-0f40391cf5c4#/ward.exe",
-                "https://forgejo.coilysiren.me/attachments/0df70e19-a2d3-4988-b2b3-493367a51ce9#/ward-linux-arm64"
+                "https://forgejo.coilysiren.me/attachments/6d38b2c2-11ff-4708-96ea-3642c176b3d3#/ward.exe",
+                "https://forgejo.coilysiren.me/attachments/eb545e1b-bb9a-4a9e-97f8-a3367a0db48c#/ward-linux-arm64"
             ],
             "hash": [
-                "60a51195ff53910c08b141397f30e9e45bbb7eaa3a605e6e688a198693ebd60d",
-                "b62e9b7bc5e4bedbc0f16361c6075e9985063f7ee636ba83d5199485668bbe33"
+                "25db85898c5bca8c5f264e8a78e412d3a873536ab384eb90d43dd1d7bd5c0bf1",
+                "0317c1a9d998b9daa6a7c20b17ab7fbe9f4afc046f9361a6a6b98faf4244f295"
             ]
         }
     },
