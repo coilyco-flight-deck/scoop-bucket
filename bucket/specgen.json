@@ -1,17 +1,17 @@
 {
-    "version": "0.122.0",
+    "version": "0.123.0",
     "description": "Generate guarded CLIs from KDL policy and committed API locks",
     "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/cli-guard",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/cli-guard/releases/download/v0.122.0/specgen-windows-amd64.exe",
-            "hash": "94f8c0f92ed4dca1f50bead2ec9b9a5cea2136f65d6a747d017646a2e2bfed2b",
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/cli-guard/releases/download/v0.123.0/specgen-windows-amd64.exe",
+            "hash": "f1a7d36b248abf3c557f97c6625dd9e1e5e4fc84ef896b6e65bdb7e37ab4c546",
             "bin": [["specgen-windows-amd64.exe", "specgen"]]
         },
         "arm64": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/cli-guard/releases/download/v0.122.0/specgen-windows-arm64.exe",
-            "hash": "6cf9e0edce1e45ca79e5505d8370aeef36656af757ffbbeb8f8b57f5c5f5ea3d",
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/cli-guard/releases/download/v0.123.0/specgen-windows-arm64.exe",
+            "hash": "34ca3c52ba3fe63ed2461701849e2501552f7ce0d83ac29265e9536d7463bedd",
             "bin": [["specgen-windows-arm64.exe", "specgen"]]
         }
     }
