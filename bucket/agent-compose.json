@@ -6,7 +6,7 @@
     "architecture": {
         "64bit": {
             "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose/releases/download/v0.70.0/agent-compose-windows-amd64.exe",
-            "hash": "cad6c2f81fb01464304549f3ba10de5cec844b40b260c769c6be33988943e0ca",
+            "hash": "dfcc4a791a45a8a545f368a081422fef6cd33383e798978e0282c6de49335233",
             "bin": [
                 ["agent-compose-windows-amd64.exe", "agent-compose"],
                 ["agent-compose-windows-amd64.exe", "acompose", "compose"]
