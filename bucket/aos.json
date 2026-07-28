@@ -1,12 +1,12 @@
 {
-    "version": "0.110.0",
+    "version": "0.111.0",
     "description": "Agent runtime composition root for Agentic OS",
     "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.110.0/aos-windows-amd64.exe",
-            "hash": "a92200cb9050ae0dd8d3801b42ab9c4127e9ea53ed46ee3e2040f7844170289d",
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.111.0/aos-windows-amd64.exe",
+            "hash": "6d5c6e9ed0cf5f5634c58fff323cd455151763f088e4f45ec06740f3550fb399",
             "bin": [
                 ["aos-windows-amd64.exe", "aos"],
                 ["aosguard-windows-amd64.exe", "aosguard"]
@@ -14,6 +14,6 @@
         }
     },
     "pre_install": [
-        "Invoke-WebRequest -Uri 'https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.110.0/aosguard-windows-amd64.exe' -OutFile \"$dir/aosguard-windows-amd64.exe\"; if ((Get-FileHash \"$dir/aosguard-windows-amd64.exe\" -Algorithm SHA256).Hash -ne '9892ebeb121df329aefe1fb6eb83f30a01730a1b750f51cb733d8542fcd54765') { throw 'aosguard checksum mismatch' }"
+        "Invoke-WebRequest -Uri 'https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.111.0/aosguard-windows-amd64.exe' -OutFile \"$dir/aosguard-windows-amd64.exe\"; if ((Get-FileHash \"$dir/aosguard-windows-amd64.exe\" -Algorithm SHA256).Hash -ne '63330d89e59449d25852cdcd7cf83ed768bd12cf8a64f7bc7870273b29959cc7') { throw 'aosguard checksum mismatch' }"
     ]
 }
