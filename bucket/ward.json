@@ -1,27 +1,27 @@
 {
-    "version": "0.849.0",
+    "version": "0.850.0",
     "description": "Audited verb gate + operator surface: the CLI contributors and agents route build/test/lint and operator ops through.",
     "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/ward",
     "license": "MIT",
     "architecture": {
         "64bit": {
             "url": [
-                "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v0.849.0/ward-windows-amd64.exe#/ward.exe",
-                "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v0.849.0/ward-linux-amd64#/ward-linux-amd64"
+                "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v0.850.0/ward-windows-amd64.exe#/ward.exe",
+                "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v0.850.0/ward-linux-amd64#/ward-linux-amd64"
             ],
             "hash": [
-                "996a7a8f923debdac7edaadb313537f130e2f3e389cc3db28f87a062f151495e",
-                "639f5f104856caaebc91d1aa9190190ae5ec12f3b6fbb589fbf7717401df2d9a"
+                "273352bf663b714a50b3951f8393cd5b4f3d3e77bf880961f60784d37c89130c",
+                "6cee7611723d08220417548ca1a19fef498f3adac83869ffe54cd1537c2dab56"
             ]
         },
         "arm64": {
             "url": [
-                "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v0.849.0/ward-windows-arm64.exe#/ward.exe",
-                "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v0.849.0/ward-linux-arm64#/ward-linux-arm64"
+                "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v0.850.0/ward-windows-arm64.exe#/ward.exe",
+                "https://forgejo.coilysiren.me/coilyco-flight-deck/ward/releases/download/v0.850.0/ward-linux-arm64#/ward-linux-arm64"
             ],
             "hash": [
-                "7654b39c789612f79a308f9460902d1a348945bea6aca54fdee17e119d998357",
-                "d899e19ad49bac25e4e8efa02e6cbff286de5763b2604180ea64cd1252fe9408"
+                "a57287903bdd3bb16f705ebf6445063fb7e058ada3c4e1a740ffecc172c68ed2",
+                "43f887b996abda819106af03d783642058a6490c982df3c26a00562ff1f098b1"
             ]
         }
     },
