@@ -1,19 +1,21 @@
 {
-    "version": "0.131.0",
+    "version": "0.132.0",
     "description": "Agent runtime composition root for Agentic OS",
     "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.131.0/aos-windows-amd64.exe",
-            "hash": "46ed8d966ced6fd63bbb6af7dbad5700c839672ebe5e06518db2b39d824b9518",
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.132.0/aos-windows-amd64.exe",
+            "hash": "1ed577a3ebe972ad395f36cc09e13b5a7288d90e1564725624e89e10257ef223",
             "bin": [
                 ["aos-windows-amd64.exe", "aos"],
-                ["aosguard-windows-amd64.exe", "aosguard"]
+                ["aosguard-windows-amd64.exe", "aosguard"],
+                ["agent-terminal-windows-amd64.exe", "agent-terminal"]
             ]
         }
     },
     "pre_install": [
-        "Invoke-WebRequest -Uri 'https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.131.0/aosguard-windows-amd64.exe' -OutFile \"$dir/aosguard-windows-amd64.exe\"; if ((Get-FileHash \"$dir/aosguard-windows-amd64.exe\" -Algorithm SHA256).Hash -ne '9180c4bfcd605626a88607a0f92e21697ea415ad4f5be64851dd343b3dd4854b') { throw 'aosguard checksum mismatch' }"
+        "Invoke-WebRequest -Uri 'https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.132.0/aosguard-windows-amd64.exe' -OutFile \"$dir/aosguard-windows-amd64.exe\"; if ((Get-FileHash \"$dir/aosguard-windows-amd64.exe\" -Algorithm SHA256).Hash -ne '3fa15b01bcf2544b15fd9f049c1a9ba0557b6170bbc5beecb2e2f9283f4d3f02') { throw 'aosguard checksum mismatch' }",
+        "Invoke-WebRequest -Uri 'https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.132.0/agent-terminal-windows-amd64.exe' -OutFile \"$dir/agent-terminal-windows-amd64.exe\"; if ((Get-FileHash \"$dir/agent-terminal-windows-amd64.exe\" -Algorithm SHA256).Hash -ne 'f3015c65e01474e2f098250800484db1df1964418ece136a5a966159ffc8e7e2') { throw 'agent-terminal checksum mismatch' }"
     ]
 }
