@@ -1,12 +1,12 @@
 {
-    "version": "1.49.0",
-    "description": "Context substrate for AOS, Ward, and native agent harnesses",
+    "version": "2.0.0",
+    "description": "Core Roster context composition for native agent harnesses",
     "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose/releases/download/v1.49.0/agent-compose-windows-amd64.exe",
-            "hash": "56c8ef187188777b8c98c0d528272439ec35ba32a4fc4aac8c8d95ae37c6ae26",
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose/releases/download/v2.0.0/agent-compose-windows-amd64.exe",
+            "hash": "a6a713ea5bc93e9622c7633bf464d2f9fe4213a3a1d934b042c4d96bc167134b",
             "bin": [
                 ["agent-compose-windows-amd64.exe", "agent-compose"],
                 ["agent-compose-windows-amd64.exe", "acompose", "compose"]
