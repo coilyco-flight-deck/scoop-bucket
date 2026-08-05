@@ -1,12 +1,12 @@
 {
-    "version": "0.154.0",
+    "version": "0.155.0",
     "description": "Agent runtime composition root for Agentic OS",
     "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.154.0/aos-windows-amd64.exe",
-            "hash": "29b85b86b9b811b907eff726834858bd5b0c22576fcbbe7d201f65884da06a79",
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.155.0/aos-windows-amd64.exe",
+            "hash": "6e4b7173bd6d7a4f2d8321eb279454a8981ded332303542c623636628db0c686",
             "bin": [
                 ["aos-windows-amd64.exe", "aos"],
                 ["aoscompose-windows-amd64.exe", "aoscompose"],
@@ -18,9 +18,9 @@
         }
     },
     "pre_install": [
-        "Invoke-WebRequest -Uri 'https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.154.0/aoscompose-windows-amd64.exe' -OutFile \"$dir/aoscompose-windows-amd64.exe\"; if ((Get-FileHash \"$dir/aoscompose-windows-amd64.exe\" -Algorithm SHA256).Hash -ne '29b85b86b9b811b907eff726834858bd5b0c22576fcbbe7d201f65884da06a79') { throw 'aoscompose checksum mismatch' }",
-        "Invoke-WebRequest -Uri 'https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.154.0/aosward-windows-amd64.exe' -OutFile \"$dir/aosward-windows-amd64.exe\"; if ((Get-FileHash \"$dir/aosward-windows-amd64.exe\" -Algorithm SHA256).Hash -ne '29b85b86b9b811b907eff726834858bd5b0c22576fcbbe7d201f65884da06a79') { throw 'aosward checksum mismatch' }",
-        "Invoke-WebRequest -Uri 'https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.154.0/aosguard-windows-amd64.exe' -OutFile \"$dir/aosguard-windows-amd64.exe\"; if ((Get-FileHash \"$dir/aosguard-windows-amd64.exe\" -Algorithm SHA256).Hash -ne '6ba3eb817546ffa77c6b2a7d39d1acef75681de6b1cffcae4c623e483bb66a03') { throw 'aosguard checksum mismatch' }",
-        "Invoke-WebRequest -Uri 'https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.154.0/agent-terminal-windows-amd64.exe' -OutFile \"$dir/agent-terminal-windows-amd64.exe\"; if ((Get-FileHash \"$dir/agent-terminal-windows-amd64.exe\" -Algorithm SHA256).Hash -ne '976015a6bebd91f9843fe8685df5060fdd3f94e2bf060f96f48067c32fa342f4') { throw 'agent-terminal checksum mismatch' }"
+        "Invoke-WebRequest -Uri 'https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.155.0/aoscompose-windows-amd64.exe' -OutFile \"$dir/aoscompose-windows-amd64.exe\"; if ((Get-FileHash \"$dir/aoscompose-windows-amd64.exe\" -Algorithm SHA256).Hash -ne '6e4b7173bd6d7a4f2d8321eb279454a8981ded332303542c623636628db0c686') { throw 'aoscompose checksum mismatch' }",
+        "Invoke-WebRequest -Uri 'https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.155.0/aosward-windows-amd64.exe' -OutFile \"$dir/aosward-windows-amd64.exe\"; if ((Get-FileHash \"$dir/aosward-windows-amd64.exe\" -Algorithm SHA256).Hash -ne '6e4b7173bd6d7a4f2d8321eb279454a8981ded332303542c623636628db0c686') { throw 'aosward checksum mismatch' }",
+        "Invoke-WebRequest -Uri 'https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.155.0/aosguard-windows-amd64.exe' -OutFile \"$dir/aosguard-windows-amd64.exe\"; if ((Get-FileHash \"$dir/aosguard-windows-amd64.exe\" -Algorithm SHA256).Hash -ne 'c350c6f09d8024ee1a53c3a26afa03199a3154d00362f6c1a3f01302d4adfd75') { throw 'aosguard checksum mismatch' }",
+        "Invoke-WebRequest -Uri 'https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v0.155.0/agent-terminal-windows-amd64.exe' -OutFile \"$dir/agent-terminal-windows-amd64.exe\"; if ((Get-FileHash \"$dir/agent-terminal-windows-amd64.exe\" -Algorithm SHA256).Hash -ne '67591d8231f1dda2cbdfe26151b04353653397d061e886592701cc6f95d1505b') { throw 'agent-terminal checksum mismatch' }"
     ]
 }
