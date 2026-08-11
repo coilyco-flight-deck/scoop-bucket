@@ -1,0 +1,11 @@
+# Per-repo command allowlist. No dev verbs - present so ward's repocfg loader
+# recognizes the repo and resolves its agent workflow.
+
+commands: {}
+
+agent:
+  workflow: merge-remote-main
+
+catalog:
+  description: "Scoop bucket for Windows binaries published by coilyco-flight-deck, with automated manifest updates from the release trains."
+  dependsOn: []
