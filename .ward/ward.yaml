@@ -3,9 +3,6 @@
 
 commands: {}
 
-agent:
-  workflow: merge-remote-main
-
 catalog:
   description: "Scoop bucket for Windows binaries published by coilyco-flight-deck, with automated manifest updates from the release trains."
   dependsOn: []
