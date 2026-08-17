@@ -18,9 +18,7 @@ how `ward` sat at `0.353.0` (scoop-bucket#1).
 rewrites `version`, per-arch `url`, and `hash` in place. Dependency-free Node,
 the portable-to-Linux equivalent of scoop's own autoupdate.
 [`autoupdate.yml`](../.forgejo/workflows/autoupdate.yml) runs it hourly and on
-dispatch, committing any bump straight to `main`. Run by hand,
-`node scripts/update-manifests.mjs` prints one line per manifest and rewrites
-only what moved.
+dispatch, committing any bump straight to `main`.
 
 ## Newest complete release, not newest tag
 
