@@ -21,7 +21,7 @@ This repo only hosts manifests. Source code for each tool lives in its own `coil
 
 ## Commands
 
-Route every dev command through coily, which reads [`.coily/coily.yaml`](.coily/coily.yaml). No local dev verbs today.
+No dev verbs, so this repo ships no justfile. [`.ward/ward.yaml`](.ward/ward.yaml) carries catalog metadata only.
 
 ## Validation
 
