@@ -1,7 +1,7 @@
 # Autoupdate automation
 
-How a new upstream release becomes a bumped manifest here, without a human
-running `scoop update` on a Windows box.
+How an upstream release becomes a bumped manifest here, with no human running
+`scoop update` on a Windows box.
 
 ## The problem this closes
 
@@ -18,25 +18,23 @@ how `ward` sat at `0.353.0` (scoop-bucket#1).
 rewrites `version`, per-arch `url`, and `hash` in place. Dependency-free Node,
 the portable-to-Linux equivalent of scoop's own autoupdate.
 [`autoupdate.yml`](../.forgejo/workflows/autoupdate.yml) runs it hourly and on
-dispatch, committing any bump straight to `main`.
+dispatch, committing any bump straight to `main`. Run by hand,
+`node scripts/update-manifests.mjs` prints one line per manifest and rewrites
+only what moved.
 
 ## Newest complete release, not newest tag
 
 An upstream release can tag but publish no binaries when its release CI flakes,
 and pointing a manifest there yields a 404 on install. So the script walks
 candidates newest-first and picks the newest whose every arch asset **and** its
-`.sha256` sidecar resolve, skipping rather than pinning a tag missing assets and
-advancing once upstream backfills. The bucket can therefore lag a fresh tag by
-one cycle while that release finishes uploading, which is the safe direction to
-fail.
+`.sha256` sidecar resolve, skipping rather than pinning a tag missing assets.
+The bucket can lag a fresh tag by one cycle while that release finishes
+uploading, which is the safe direction to fail.
 
-## Running it by hand, and the upstream contract
+## The upstream contract
 
-`node scripts/update-manifests.mjs` prints one line per manifest, either a bump
-like `ward.json: 0.353.0 -> 0.359.0` or a skip note, and rewrites only what
-moved. The producing repo's release workflow attaches `<asset>` and
-`<asset>.sha256` to a `v<semver>` release, and without the sidecar the script
-holds the manifest where it is.
+The producing repo attaches `<asset>` and `<asset>.sha256` to a `v<semver>`
+release. Without the sidecar the script holds the manifest where it is.
 
 ## See also
 
