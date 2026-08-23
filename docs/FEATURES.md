@@ -4,10 +4,14 @@ Baseline inventory of what `coilyco-flight-deck/scoop-bucket` ships today. Updat
 
 ## Manifests
 
-Bucket installed via `scoop bucket add flight-deck https://forgejo.coilysiren.me/coilyco-flight-deck/scoop-bucket`. Individual manifests installed with `scoop install flight-deck/<name>`.
+Bucket installed via `scoop bucket add coilyco-flight-deck https://forgejo.coilysiren.me/coilyco-flight-deck/scoop-bucket`. Individual manifests installed with `scoop install coilyco-flight-deck/<name>`. Every manifest pulls a prebuilt `*-windows-<arch>.exe` from a Forgejo release and verifies it against the `.sha256` sidecar published beside it.
 
-- **[bucket/ward.json](../bucket/ward.json)** - tracks `coilyco-flight-deck/ward` Forgejo releases. Pulls `ward-windows-{amd64,arm64}.exe` (renamed `ward.exe`), each verified against its `.exe.sha256` sidecar. ward is the cli-guard consumer (audited dev + operator surface) and this is the primary Windows install/upgrade channel `ward upgrade` drives. See [ward#561](https://forgejo.coilysiren.me/coilyco-flight-deck/ward/issues/561).
-- **[bucket/o2r.json](../bucket/o2r.json)** - tracks `coilyco-flight-deck/otel-a2a-relay-cli` Forgejo releases. Pulls the prebuilt `o2r-windows-<arch>.exe` from each tag. Operator CLI for Agent Channels and trust issuance.
+- **[bucket/ward.json](../bucket/ward.json)** - tracks `coilyco-flight-deck/ward` releases. Pulls `ward-windows-{amd64,arm64}.exe`, renamed `ward.exe`. ward is the umbra consumer carrying the audited dev and operator surface, and this is the primary Windows install and upgrade channel `ward upgrade` drives. See [ward#561](https://forgejo.coilysiren.me/coilyco-flight-deck/ward/issues/561).
+- **[bucket/specgen.json](../bucket/specgen.json)** - tracks `specgen` releases from `coilyco-flight-deck/umbra`. Generates guarded CLIs from KDL policy and committed API locks.
+- **[bucket/agent-compose.json](../bucket/agent-compose.json)** - tracks `coilyco-flight-deck/agent-compose` releases. Core Roster context composition for native agent harnesses.
+- **[bucket/aos.json](../bucket/aos.json)** - tracks `aos-v*` releases from `coilyco-flight-deck/agentic-os`. The agent runtime composition root.
+
+The `o2r` manifest is gone, because its upstream `otel-a2a-relay-cli` is archived.
 
 ## Autoupdate
 
@@ -24,6 +28,6 @@ Upstream-side contract:
 
 - [README.md](../README.md) - human-facing intro and install steps.
 - [AGENTS.md](../AGENTS.md) - agent-facing operating rules.
-- [.coily/coily.yaml](../.coily/coily.yaml) - allowlisted commands.
+- [.ward/ward.yaml](../.ward/ward.yaml) - catalog metadata only.
 
 Cross-reference convention from [coilysiren/agentic-os-kai#313](https://github.com/coilysiren/agentic-os-kai/issues/313).

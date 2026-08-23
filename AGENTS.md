@@ -12,8 +12,9 @@ The Scoop bucket for `coilyco-flight-deck/*` tools on Windows. Sibling to the fl
 
 ## Project shape
 
-- `bucket/*.json` - Scoop manifests, one per published tool.
+- `bucket/*.json` - Scoop manifests, one per published tool. Today: `ward`, `specgen`, `agent-compose`, `aos`.
 - `README.md` - install steps and the upstream-side contract for autoupdate.
+- `.forgejo/workflows/autoupdate.yml` and `scripts/update-manifests.mjs` - the hourly job that lands version bumps.
 
 ## Repo boundaries
 
@@ -21,7 +22,7 @@ This repo only hosts manifests. Source code for each tool lives in its own `coil
 
 ## Commands
 
-No dev verbs, so this repo ships no justfile. [`.ward/ward.yaml`](.ward/ward.yaml) carries catalog metadata only.
+No dev verbs, so this repo ships no justfile. [`.ward/ward.yaml`](.ward/ward.yaml) carries catalog metadata only. The autoupdate job runs `scripts/update-manifests.mjs` in CI, not from a local verb.
 
 ## Validation
 
@@ -33,7 +34,7 @@ Public repo, external-contributor audience. No LAN IPs, public IPs, addresses, r
 
 - Do not hand-edit `version` or `hash` to race the release pipeline.
 - Do not bypass commit hooks (`--no-verify`).
-- Privileged ops route through `coily ops gh` etc., never bare `gh` / `aws` / `kubectl`.
+- Operator verbs route through `aosguard ops <area>`, never bare `gh`, `aws`, or `kubectl`. Enumerate an area with `aosguard ops <area> describe` rather than guessing a verb.
 
 ## Cross-repo contracts
 
@@ -45,7 +46,7 @@ Upstream repos cut a tag. `scoop update` reads the manifest's `autoupdate` block
 
 ## Agent rules
 
-Commit to `main`, push after each commit. Every commit closes a same-repo issue with `closes #N`. The commit-msg hook enforces this.
+Commit to `main`, push after each commit. Conventional commits and issue references are house style. The `closes-issue` and `conventional-commit` commit-msg hooks were retired from the catalog suite, so nothing enforces them here.
 
 ## Checkout residency
 
@@ -60,6 +61,6 @@ switching tasks, or ending a session. The remote is the only durable artifact.
 
 - [README.md](README.md) - human-facing intro.
 - [docs/FEATURES.md](docs/FEATURES.md) - inventory of what ships today.
-- [.coily/coily.yaml](.coily/coily.yaml) - allowlisted commands.
+- [.ward/ward.yaml](.ward/ward.yaml) - catalog metadata only.
 
 Cross-reference convention from [coilysiren/agentic-os-kai#313](https://github.com/coilysiren/agentic-os-kai/issues/313).
