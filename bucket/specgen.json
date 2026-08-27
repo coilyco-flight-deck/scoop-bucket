@@ -1,17 +1,17 @@
 {
-    "version": "0.176.0",
+    "version": "0.177.0",
     "description": "Generate guarded CLIs from KDL policy and committed API locks",
     "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/umbra",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/umbra/releases/download/v0.176.0/specgen-windows-amd64.exe",
-            "hash": "42d2c316854bff2a0160555d8c8b929aa222daa354be65a03a87bdf446915e4f",
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/umbra/releases/download/v0.177.0/specgen-windows-amd64.exe",
+            "hash": "c030973d750daefc0ea7acdb91e4640d0d8295a7ecbd2d2f5e13e039ccd8e864",
             "bin": [["specgen-windows-amd64.exe", "specgen"]]
         },
         "arm64": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/umbra/releases/download/v0.176.0/specgen-windows-arm64.exe",
-            "hash": "4d28b111e11da08b614efea96ecab7038479332ad9153c045855c999b7fb8170",
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/umbra/releases/download/v0.177.0/specgen-windows-arm64.exe",
+            "hash": "804a4c6ff8930bea0238188738ddb263ab41d4add9273bda0b06c9ab794c0a9b",
             "bin": [["specgen-windows-arm64.exe", "specgen"]]
         }
     }
