@@ -1,9 +1,5 @@
-# Catalog metadata for the cross-repo knowledge graph.
-#
-# Dev verbs used to live here as a `commands:` block. They are recipes in the
-# justfile now. This file survives only because check_catalog_block pins this
-# exact path and catalog-trifecta wants README, AGENTS, and FEATURES to link
-# it, both upstream in agentic-os.
+# Catalog metadata for the cross-repo knowledge graph. Dev verbs moved to the
+# justfile; this path survives because check_catalog_block pins it.
 
 catalog:
   description: "Scoop bucket for Windows binaries published by coilyco-flight-deck, with automated manifest updates from the release trains."

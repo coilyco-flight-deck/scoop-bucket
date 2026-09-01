@@ -17,7 +17,7 @@ Then install whichever tools you want:
 
 ```powershell
 scoop install coilyco-flight-deck/ward
-scoop install coilyco-flight-deck/specgen
+scoop install coilyco-flight-deck/umbra
 scoop install coilyco-flight-deck/agent-compose
 scoop install coilyco-flight-deck/aos
 ```
@@ -30,9 +30,10 @@ Upgrade with `scoop update <name>`, or `scoop update *` for everything.
   the audited verb gate contributors route build, test, and lint through. This
   is the Windows channel `ward upgrade` drives. From
   [ward](https://forgejo.coilysiren.me/coilyco-flight-deck/ward).
-- [`specgen`](bucket/specgen.json) - generates a standalone guarded CLI from
+- [`umbra`](bucket/umbra.json) - generates a standalone guarded CLI from
   KDL policy plus a committed lock. From
-  [umbra](https://forgejo.coilysiren.me/coilyco-flight-deck/umbra).
+  [umbra](https://forgejo.coilysiren.me/coilyco-flight-deck/umbra). Installed as
+  `specgen` before the driver took its framework's name.
 - [`agent-compose`](bucket/agent-compose.json) - composes the role, doctrine,
   and skill context an agent harness loads. From
   [agent-compose](https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose).

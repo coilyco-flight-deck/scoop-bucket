@@ -5,3 +5,8 @@ org = "coilyco-flight-deck"
 # Declared rather than defaulted: an undeclared repo and a deliberately
 # small one were the same file, and only one had the decision made.
 band = "small"
+
+# The managed markers are stamped inside the pre-commit YAML and
+# cannot form a single top-of-file comment block.
+[tool.agentic-os.code-comments]
+excludes = [".pre-commit-config.yaml"]

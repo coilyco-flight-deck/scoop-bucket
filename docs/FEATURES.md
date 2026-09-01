@@ -7,7 +7,7 @@ Baseline inventory of what `coilyco-flight-deck/scoop-bucket` ships today. Updat
 Bucket installed via `scoop bucket add coilyco-flight-deck https://forgejo.coilysiren.me/coilyco-flight-deck/scoop-bucket`. Individual manifests installed with `scoop install coilyco-flight-deck/<name>`. Every manifest pulls a prebuilt `*-windows-<arch>.exe` from a Forgejo release and verifies it against the `.sha256` sidecar published beside it.
 
 - **[bucket/ward.json](../bucket/ward.json)** - tracks `coilyco-flight-deck/ward` releases. Pulls `ward-windows-{amd64,arm64}.exe`, renamed `ward.exe`. ward is the umbra consumer carrying the audited dev and operator surface, and this is the primary Windows install and upgrade channel `ward upgrade` drives. See [ward#561](https://forgejo.coilysiren.me/coilyco-flight-deck/ward/issues/561).
-- **[bucket/specgen.json](../bucket/specgen.json)** - tracks `specgen` releases from `coilyco-flight-deck/umbra`. Generates guarded CLIs from KDL policy and committed API locks.
+- **[bucket/umbra.json](../bucket/umbra.json)** - tracks `coilyco-flight-deck/umbra` releases. Generates guarded CLIs from KDL policy and committed API locks. Published as `specgen` through v0.191.0.
 - **[bucket/agent-compose.json](../bucket/agent-compose.json)** - tracks `coilyco-flight-deck/agent-compose` releases. Core Roster context composition for native agent harnesses.
 - **[bucket/aos.json](../bucket/aos.json)** - tracks `aos-v*` releases from `coilyco-flight-deck/agentic-os`. The agent runtime composition root.
 
