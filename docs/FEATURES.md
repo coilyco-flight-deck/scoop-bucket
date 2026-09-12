@@ -14,13 +14,13 @@ The `o2r` manifest is gone, because its upstream `otel-a2a-relay-cli` is archive
 
 ## Autoupdate
 
-Each manifest's `autoupdate` block points at `https://forgejo.coilysiren.me/coilyco-flight-deck/<repo>/releases/download/v$version/<asset>#/<rename>` and reads the SHA256 from the `.sha256` sidecar uploaded alongside the binary.
+[`scripts/autoupdate-sources.json`](../scripts/autoupdate-sources.json) names, per manifest, the `checkver` feed, the rendered `<tool>.json` upstream publishes, and that release's `SHA256SUMS`. It sits beside the script, not inside `bucket/*.json`, which keeps each manifest byte-identical to upstream's. No upstream here publishes `.sha256` sidecars any more.
 
-- **[.forgejo/workflows/autoupdate.yml](../.forgejo/workflows/autoupdate.yml)** + **[scripts/update-manifests.mjs](../scripts/update-manifests.mjs)** - the in-repo job that lands bumps. It runs hourly (and on `workflow_dispatch`), advances each manifest to the newest **complete** upstream release (skipping any tag whose assets or `.sha256` sidecars are missing), and commits to `main`. This is the piece whose absence stuck `ward` at `0.353.0` ([scoop-bucket#1](https://forgejo.coilysiren.me/coilyco-flight-deck/scoop-bucket/issues/1)). A manifest whose checkver feed has gone is reported and skipped, so one dead upstream does not strand the rest. See [docs/autoupdate.md](autoupdate.md) for the walkthrough.
+- **[.forgejo/workflows/autoupdate.yml](../.forgejo/workflows/autoupdate.yml)** + **[scripts/update-manifests.mjs](../scripts/update-manifests.mjs)** - the hourly backstop behind the per-repo push. All three manifests are covered, so the job fetches the manifest upstream itself published at the newest usable release, checks it against that release's `SHA256SUMS`, and commits its bytes unchanged. It never re-derives a manifest. A gone feed, a regex matching no tag, and a manifest stuck behind three unusable releases are each reported with a non-zero exit rather than passing as current. This is the piece whose absence stuck `ward` at `0.353.0` ([scoop-bucket#1](https://forgejo.coilysiren.me/coilyco-flight-deck/scoop-bucket/issues/1)). See [docs/autoupdate.md](autoupdate.md) for the walkthrough.
 
 Upstream-side contract:
 
-- The producing repo's `release.yml` attaches `<asset>` and `<asset>.sha256` to the release.
+- The producing repo's `release.yml` attaches the assets, a `SHA256SUMS` covering them, and the rendered `<tool>.json` manifest.
 - The release tag is `v<semver>`.
 
 ## See also

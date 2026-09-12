@@ -1,36 +1,38 @@
 # Autoupdate automation
 
 How an upstream release becomes a bumped manifest here, with no human running
-`scoop update` on a Windows box.
+`scoop update`.
 
 ## The problem this closes
 
 `scoop update <app>` compares the installed version to the manifest without
-re-deriving it from upstream. So if nothing rewrites `bucket/*.json` every client
-calls its pinned version "latest" long after upstream cut newer releases. That is
-how `ward` sat at `0.353.0` (scoop-bucket#1).
+re-deriving it from upstream, so if nothing rewrites `bucket/*.json` every client
+calls its pinned version "latest" forever. That is how `ward` sat at `0.353.0`
+(scoop-bucket#1).
 
-## The pieces
+## Push is the normal path, this job is the backstop
 
-[`scripts/update-manifests.mjs`](../scripts/update-manifests.mjs) walks every
-`bucket/*.json`, reads its `checkver` feed and `autoupdate` templates, and
-rewrites `version`, per-arch `url`, and `hash` in place. Dependency-free Node,
-the portable-to-Linux equivalent of scoop's own autoupdate, run hourly and on
-dispatch by [`autoupdate.yml`](../.forgejo/workflows/autoupdate.yml).
+Each upstream renders its own manifest, publishes it as a release asset, and its
+release CI pushes that file here. The hourly job exists for when that push stops
+without anyone noticing. [`update-manifests.mjs`](../scripts/update-manifests.mjs)
+reads [`autoupdate-sources.json`](../scripts/autoupdate-sources.json), follows
+each `checkver` feed, and writes upstream's manifest **bytes** at the newest
+usable release. It re-derives nothing: a second renderer would drift from the
+repo owning the shape, and keeping that pull config beside the script rather than
+inside `bucket/*.json` is what keeps each manifest byte-identical to upstream's.
 
-## Newest complete release, not newest tag
+## What makes a release usable
 
-The upstream contract is that a producing repo attaches `<asset>` and
-`<asset>.sha256` to a `v<semver>` release. A release can tag but publish no
-binaries when its release CI flakes, and pointing a manifest there yields a 404
-on install. So the script picks the newest candidate whose every arch asset
-**and** `.sha256` sidecar resolve, lagging a tag by a cycle rather than pinning
-an incomplete one.
+The manifest asset must parse, its `version` must equal its tag, and every asset
+named in it that `SHA256SUMS` covers must carry the digest upstream vouches for,
+reaching the `pre_install` hashes `aos` keeps outside `architecture`. One release
+failing that is one still uploading, so the bucket lags a cycle. Three in a row is
+a broken upstream, reported with a non-zero exit.
 
-An archived or deleted upstream is the other shape: its `releases.atom` 404s
-forever. That manifest is reported and skipped, the rest still advance, and the
-run still exits non-zero. Aborting the batch is how `ward` took the job down for
-ten days (scoop-bucket#1697).
+Quiet failures get the same treatment. A deleted upstream 404s its
+`releases.atom` and a `checkver` regex can match nothing, and both read as
+"already up to date" unless named. `agentic-os` runs three trains through one
+feed, so `aos.json` anchors to `aos-v`.
 
 ## See also
 

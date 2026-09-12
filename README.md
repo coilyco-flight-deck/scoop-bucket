@@ -36,27 +36,29 @@ Upgrade with `scoop update <name>`, or `scoop update *` for everything.
   [agentic-os](https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os).
 
 Every manifest pulls a prebuilt `*-windows-<arch>.exe` from a Forgejo release
-and verifies it against the `.sha256` sidecar published beside it.
+and verifies it against the `SHA256SUMS` published with that release.
 
 ## How a version bump lands here
 
-Each manifest's `autoupdate` block points at
-`https://forgejo.coilysiren.me/coilyco-flight-deck/<repo>/releases/download/v$version/<asset>#/<rename>`
-and reads the checksum from the sidecar.
+Each upstream renders its own manifest and publishes it as a release asset, then
+its release CI pushes that file into `bucket/`. That push is the normal path, and
+the commits reading `chore(<tool>): bump manifest to vX.Y.Z [skip ci]` are it.
 
-Landing those bumps is automated in this repo.
-[`.forgejo/workflows/autoupdate.yml`](.forgejo/workflows/autoupdate.yml) runs
-[`scripts/update-manifests.mjs`](scripts/update-manifests.mjs) hourly, advances
-each manifest to the newest **complete** upstream release, and commits to
-`main`. Complete means every asset and every `.sha256` sidecar exists, so a
-half-published tag is skipped rather than pinned. Without that job the bucket
-never moves and `scoop update` keeps reporting the installed version as the
-latest. See [docs/autoupdate.md](docs/autoupdate.md) and
+[`.forgejo/workflows/autoupdate.yml`](.forgejo/workflows/autoupdate.yml) is the
+backstop for when that push stops. It runs
+[`scripts/update-manifests.mjs`](scripts/update-manifests.mjs) hourly, which
+follows the `checkver` feeds in
+[`scripts/autoupdate-sources.json`](scripts/autoupdate-sources.json), fetches the
+manifest **upstream itself published** at the newest complete release, checks it
+against that release's `SHA256SUMS`, and commits its bytes unchanged. The bucket
+receives upstream's manifest rather than re-deriving one, so the renderer stays
+in the repo that owns the shape. See [docs/autoupdate.md](docs/autoupdate.md) and
 [scoop-bucket#1](https://forgejo.coilysiren.me/coilyco-flight-deck/scoop-bucket/issues/1).
 
-An upstream repo that wants a manifest here owes two things from its own
-`release.yml`: attach both `<asset>` and `<asset>.sha256` to the release, and
-tag as `v<semver>`.
+An upstream repo that wants a manifest here owes three things from its own
+`release.yml`: attach the built assets plus a `SHA256SUMS` covering them, attach
+the rendered `<tool>.json` manifest, and tag consistently so one regex selects
+that train and no other.
 
 ## See also
 

@@ -1,0 +1,26 @@
+{
+    "agent-compose.json": {
+        "checkver": {
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose/releases.atom",
+            "regex": "releases/tag/v([\\d.]+)"
+        },
+        "manifest": "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose/releases/download/v$version/agent-compose.json",
+        "sums": "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose/releases/download/v$version/SHA256SUMS"
+    },
+    "aos.json": {
+        "checkver": {
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases.atom",
+            "regex": "releases/tag/aos-v([\\d.]+)"
+        },
+        "manifest": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v$version/aos.json",
+        "sums": "https://forgejo.coilysiren.me/coilyco-flight-deck/agentic-os/releases/download/aos-v$version/SHA256SUMS"
+    },
+    "umbra.json": {
+        "checkver": {
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/umbra/releases.atom",
+            "regex": "releases/tag/v([\\d.]+)"
+        },
+        "manifest": "https://forgejo.coilysiren.me/coilyco-flight-deck/umbra/releases/download/v$version/umbra.json",
+        "sums": "https://forgejo.coilysiren.me/coilyco-flight-deck/umbra/releases/download/v$version/SHA256SUMS"
+    }
+}
