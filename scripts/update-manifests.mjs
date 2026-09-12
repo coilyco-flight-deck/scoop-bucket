@@ -16,6 +16,16 @@ async function fetchText(url) {
   return await res.text();
 }
 
+// A 404 on the feed means the upstream repo is gone, not that the network blinked.
+async function feedStatus(url) {
+  try {
+    const res = await fetch(url, { headers: { "User-Agent": "scoop-bucket-autoupdate" } });
+    return res.status;
+  } catch {
+    return 0;
+  }
+}
+
 // Numeric semver compare on the dotted digits scoop's checkver regex captures.
 function cmpVersion(a, b) {
   const pa = a.split(".").map(Number);
@@ -30,7 +40,7 @@ function cmpVersion(a, b) {
 // Read the checkver feed and return matching versions, newest first.
 async function candidateVersions(checkver) {
   const feed = await fetchText(checkver.url);
-  if (feed === null) throw new Error(`checkver feed unreachable: ${checkver.url}`);
+  if (feed === null) return null;
   const re = new RegExp(checkver.regex, "g");
   const seen = [];
   let m;
@@ -63,6 +73,7 @@ function serialize(obj) {
 }
 
 const changed = [];
+const broken = [];
 for (const file of readdirSync(BUCKET).filter((f) => f.endsWith(".json")).sort()) {
   const path = join(BUCKET, file);
   const data = JSON.parse(readFileSync(path, "utf8"));
@@ -70,6 +81,13 @@ for (const file of readdirSync(BUCKET).filter((f) => f.endsWith(".json")).sort()
 
   const current = data.version;
   const versions = await candidateVersions(data.checkver);
+  if (versions === null) {
+    const status = await feedStatus(data.checkver.url);
+    const why = status === 404 ? "gone (404)" : `unreadable (status ${status || "no response"})`;
+    console.log(`${file}: checkver feed ${why}: ${data.checkver.url}`);
+    broken.push(`${file} ${why}`);
+    continue; // one dead upstream must not strand every other manifest
+  }
   let applied = null;
   for (const v of versions) {
     if (cmpVersion(v, current) <= 0) break; // caught up; nothing newer remains
@@ -97,3 +115,9 @@ for (const file of readdirSync(BUCKET).filter((f) => f.endsWith(".json")).sort()
 }
 
 if (changed.length === 0) console.log("No manifests advanced.");
+
+if (broken.length > 0) {
+  console.error(`\n${broken.length} manifest(s) have a dead checkver feed:`);
+  for (const b of broken) console.error(`  ${b}`);
+  process.exitCode = 1;
+}

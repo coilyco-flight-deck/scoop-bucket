@@ -16,7 +16,6 @@ scoop bucket add coilyco-flight-deck https://forgejo.coilysiren.me/coilyco-fligh
 Then install whichever tools you want:
 
 ```powershell
-scoop install coilyco-flight-deck/ward
 scoop install coilyco-flight-deck/umbra
 scoop install coilyco-flight-deck/agent-compose
 scoop install coilyco-flight-deck/aos
@@ -26,10 +25,6 @@ Upgrade with `scoop update <name>`, or `scoop update *` for everything.
 
 ## What is in the bucket
 
-- [`ward`](bucket/ward.json) - governed execution layer for coding agents, and
-  the audited verb gate contributors route build, test, and lint through. This
-  is the Windows channel `ward upgrade` drives. From
-  [ward](https://forgejo.coilysiren.me/coilyco-flight-deck/ward).
 - [`umbra`](bucket/umbra.json) - generates a standalone guarded CLI from
   KDL policy plus a committed lock. From
   [umbra](https://forgejo.coilysiren.me/coilyco-flight-deck/umbra). Installed as

@@ -5,10 +5,9 @@ How an upstream release becomes a bumped manifest here, with no human running
 
 ## The problem this closes
 
-`scoop update <app>` pulls the latest bucket commit and compares the installed
-version to the manifest, without re-deriving it from upstream. So if nothing
-rewrites `bucket/*.json` the manifest stays pinned and every client reports its
-installed version as "latest" long after upstream cut newer releases. That is
+`scoop update <app>` compares the installed version to the manifest without
+re-deriving it from upstream. So if nothing rewrites `bucket/*.json` every client
+calls its pinned version "latest" long after upstream cut newer releases. That is
 how `ward` sat at `0.353.0` (scoop-bucket#1).
 
 ## The pieces
@@ -16,23 +15,22 @@ how `ward` sat at `0.353.0` (scoop-bucket#1).
 [`scripts/update-manifests.mjs`](../scripts/update-manifests.mjs) walks every
 `bucket/*.json`, reads its `checkver` feed and `autoupdate` templates, and
 rewrites `version`, per-arch `url`, and `hash` in place. Dependency-free Node,
-the portable-to-Linux equivalent of scoop's own autoupdate.
-[`autoupdate.yml`](../.forgejo/workflows/autoupdate.yml) runs it hourly and on
-dispatch, committing any bump straight to `main`.
+the portable-to-Linux equivalent of scoop's own autoupdate, run hourly and on
+dispatch by [`autoupdate.yml`](../.forgejo/workflows/autoupdate.yml).
 
 ## Newest complete release, not newest tag
 
-An upstream release can tag but publish no binaries when its release CI flakes,
-and pointing a manifest there yields a 404 on install. So the script walks
-candidates newest-first and picks the newest whose every arch asset **and** its
-`.sha256` sidecar resolve, skipping rather than pinning a tag missing assets.
-The bucket can lag a fresh tag by one cycle while that release finishes
-uploading, which is the safe direction to fail.
+The upstream contract is that a producing repo attaches `<asset>` and
+`<asset>.sha256` to a `v<semver>` release. A release can tag but publish no
+binaries when its release CI flakes, and pointing a manifest there yields a 404
+on install. So the script picks the newest candidate whose every arch asset
+**and** `.sha256` sidecar resolve, lagging a tag by a cycle rather than pinning
+an incomplete one.
 
-## The upstream contract
-
-The producing repo attaches `<asset>` and `<asset>.sha256` to a `v<semver>`
-release. Without the sidecar the script holds the manifest where it is.
+An archived or deleted upstream is the other shape: its `releases.atom` 404s
+forever. That manifest is reported and skipped, the rest still advance, and the
+run still exits non-zero. Aborting the batch is how `ward` took the job down for
+ten days (scoop-bucket#1697).
 
 ## See also
 
