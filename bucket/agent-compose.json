@@ -1,19 +1,19 @@
 {
-    "version": "2.141.0",
+    "version": "2.142.0",
     "description": "Core Roster context composition for native agent harnesses",
     "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose",
     "license": "MIT",
     "architecture": {
         "64bit": {
             "url": [
-                "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose/releases/download/v2.141.0/agent-compose-windows-amd64.exe",
-                "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose/releases/download/v2.141.0/agent-compose-roster.tar.gz",
-                "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose/releases/download/v2.141.0/agent-compose-bundles.tar.gz"
+                "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose/releases/download/v2.142.0/agent-compose-windows-amd64.exe",
+                "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose/releases/download/v2.142.0/agent-compose-roster.tar.gz",
+                "https://forgejo.coilysiren.me/coilyco-flight-deck/agent-compose/releases/download/v2.142.0/agent-compose-bundles.tar.gz"
             ],
             "hash": [
-                "094ee9ddf24e85b071412ca563dd990845feed0187343c51667f3845202ed8e5",
-                "456711a2f2fc679b025c65cdb770c3af3b0fa9dcb3a5d28868fb62b1a0a24b61",
-                "1f7928e4cdbb0297ed71e80dfd3f15f921913b49ed0cd5d33f8f30c17e48e2d7"
+                "dffcaff30af13e58e79991b736bbe57e754da68a1cc369a9a89f9fb9b86383f0",
+                "198548e784a33295b7d949cd4b4889f75273044ae06b5d3256ab684067f67114",
+                "4c66c697dfc2cb6911e841419b28af44431558a6ac93d6bb9d772392a618e447"
             ],
             "bin": [
                 ["agent-compose-windows-amd64.exe", "agent-compose"],
