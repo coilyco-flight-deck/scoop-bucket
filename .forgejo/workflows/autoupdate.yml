@@ -17,6 +17,8 @@ jobs:
     container: forgejo.coilysiren.me/coilyco-flight-deck/agentic-os:release
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: main
 
       - name: Advance manifests to newest complete releases
         run: node scripts/update-manifests.mjs

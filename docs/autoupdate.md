@@ -1,7 +1,6 @@
 # Autoupdate automation
 
-How an upstream release becomes a bumped manifest here, with no human running
-`scoop update`.
+How an upstream release becomes a bumped manifest, with no human running `scoop update`.
 
 ## The problem this closes
 
@@ -20,6 +19,8 @@ each `checkver` feed, and writes upstream's manifest **bytes** at the newest
 usable release. It re-derives nothing: a second renderer would drift from the
 repo owning the shape, and keeping that pull config beside the script rather than
 inside `bucket/*.json` is what keeps each manifest byte-identical to upstream's.
+The checkout pins `ref: main`: a schedule runs at the sha it registered on, and
+`[skip ci]` bumps never re-register it (hourly rejected pushes from 2026-09-12).
 
 ## What makes a release usable
 
@@ -29,10 +30,9 @@ reaching the `pre_install` hashes `aos` keeps outside `architecture`. One releas
 failing that is one still uploading, so the bucket lags a cycle. Three in a row is
 a broken upstream, reported with a non-zero exit.
 
-Quiet failures get the same treatment. A deleted upstream 404s its
-`releases.atom` and a `checkver` regex can match nothing, and both read as
-"already up to date" unless named. `agentic-os` runs three trains through one
-feed, so `aos.json` anchors to `aos-v`.
+Quiet failures get the same treatment: a deleted upstream 404s its feed and a
+`checkver` regex can match nothing, both named rather than read as current.
+`agentic-os` runs three trains through one feed, so `aos.json` anchors to `aos-v`.
 
 ## See also
 
