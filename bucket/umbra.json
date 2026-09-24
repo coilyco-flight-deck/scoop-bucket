@@ -1,17 +1,17 @@
 {
-    "version": "0.237.0",
+    "version": "0.238.0",
     "description": "Generate guarded CLIs from KDL policy and committed API locks",
     "homepage": "https://forgejo.coilysiren.me/coilyco-flight-deck/umbra",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/umbra/releases/download/v0.237.0/umbra-windows-amd64.exe",
-            "hash": "7d7095032ce1eca7cfd0e4e8a4ef2e75c214550f7ac3368c3be2dedb96b6093c",
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/umbra/releases/download/v0.238.0/umbra-windows-amd64.exe",
+            "hash": "ebef938b01d6e3a69b57d0c1b68c14abf1cef2a292dbe6cc36bc5327a212e0c4",
             "bin": [["umbra-windows-amd64.exe", "umbra"]]
         },
         "arm64": {
-            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/umbra/releases/download/v0.237.0/umbra-windows-arm64.exe",
-            "hash": "e364f0c59c563e2de5c2bf088f63de6b4e1025ccf1777ff4042271e461199de4",
+            "url": "https://forgejo.coilysiren.me/coilyco-flight-deck/umbra/releases/download/v0.238.0/umbra-windows-arm64.exe",
+            "hash": "32d0b7a5cbfcc8bddc522ee18a8fc03396d732394593d9d0cc4672365e33ff6e",
             "bin": [["umbra-windows-arm64.exe", "umbra"]]
         }
     }
